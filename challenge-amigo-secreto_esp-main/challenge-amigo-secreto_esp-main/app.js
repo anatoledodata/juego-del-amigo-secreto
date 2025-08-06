@@ -15,6 +15,7 @@ function agregarAmigo() {
             actualizarLista()
             console.log("Lista actualizada:", listaDeAmigos);
         }
+        limpiarSorteo(); 
         limpiarCaja();
     }
 }
@@ -26,7 +27,7 @@ function limpiarCaja () {
 
 function actualizarLista() {
     let listaEnPantalla = document.getElementById('listaAmigos');
-    listaEnPantalla.innerHTML = ''; 
+    limpiarLista(); 
 
     for(let i = 0; i < listaDeAmigos.length; i++) {
         const li = document.createElement('li');
@@ -45,5 +46,25 @@ function sortearAmigo() {
     const nombreSorteado = listaDeAmigos[indiceAleatorio]; 
 
     let resultado = document.getElementById('resultado');
-    resultado.innerHTML = nombreSorteado; 
+    resultado.innerHTML = ` El nombre sorteado es: ${nombreSorteado}`; 
+
+    condicionesIniciales();
 }
+
+function limpiarLista() {
+    let listaEnPantalla = document.getElementById('listaAmigos');
+    listaEnPantalla.innerHTML = ''; 
+}
+
+function limpiarSorteo() {
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = ''; 
+}
+
+function condicionesIniciales() {
+    limpiarCaja(); 
+    limpiarLista(); 
+    listaDeAmigos.length = 0; 
+}
+
+condicionesIniciales(); 
