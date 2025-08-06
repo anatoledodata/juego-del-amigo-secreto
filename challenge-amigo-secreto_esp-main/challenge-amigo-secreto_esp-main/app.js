@@ -12,6 +12,7 @@ function agregarAmigo() {
             alert('Este nombre ya ha sido ingresado');
         } else {
             listaDeAmigos.push(amigos);
+            actualizarLista()
             console.log("Lista actualizada:", listaDeAmigos);
         }
         limpiarCaja();
@@ -21,4 +22,15 @@ function agregarAmigo() {
 
 function limpiarCaja () {
     document.getElementById('amigo').value = ""; 
+}
+
+function actualizarLista() {
+    let listaEnPantalla = document.getElementById('listaAmigos');
+    listaEnPantalla.innerHTML = ''; 
+
+    for(let i = 0; i < listaDeAmigos.length; i++) {
+        const li = document.createElement('li');
+        li.textContent = listaDeAmigos[i]; 
+        listaEnPantalla.appendChild(li);
+    }
 }
