@@ -34,3 +34,16 @@ function actualizarLista() {
         listaEnPantalla.appendChild(li);
     }
 }
+
+function sortearAmigo() {
+    if (listaDeAmigos.length === 0) {
+        alert('No hay amigos para sortear');
+        return;
+    }
+
+    const indiceAleatorio = Math.floor(Math.random()* listaDeAmigos.length); 
+    const nombreSorteado = listaDeAmigos[indiceAleatorio]; 
+
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = nombreSorteado; 
+}
