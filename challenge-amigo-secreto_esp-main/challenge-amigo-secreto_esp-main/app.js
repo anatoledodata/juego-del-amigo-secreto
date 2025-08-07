@@ -2,24 +2,20 @@ let listaDeAmigos = [];
 
 function agregarAmigo() {
     let amigos = document.getElementById('amigo').value.trim().toLowerCase();
-    console.log("Nombre ingresado:", amigos);
 
     if (amigos === ""){
         alert ('Por favor, inserte un nombre');
     } else {
         if (listaDeAmigos.includes(amigos)){
-            console.log("Ya existe:", amigos);
             alert('Este nombre ya ha sido ingresado');
         } else {
             listaDeAmigos.push(amigos);
             actualizarLista()
-            console.log("Lista actualizada:", listaDeAmigos);
         }
         limpiarSorteo(); 
         limpiarCaja();
     }
 }
-
 
 function limpiarCaja () {
     document.getElementById('amigo').value = ""; 
